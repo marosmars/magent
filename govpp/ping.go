@@ -9,14 +9,14 @@ package govpp
 #include <vlibapi/api.h>
 #include <vlibmemory/api.h>
 
-#include <vpp-api/vpe_msg_enum.h>
+#include <vpp/api/vpe_msg_enum.h>
 
 #define vl_typedefs
-#include <vpp-api/vpe_all_api_h.h>
+#include <vpp/api/vpe_all_api_h.h>
 #undef vl_typedefs
 
 #define vl_endianfun
-#include <vpp-api/vpe_all_api_h.h>
+#include <vpp/api/vpe_all_api_h.h>
 #undef vl_endianfun
 
 void pingCallback(u32 retval, u32 pid, u32 ctx);

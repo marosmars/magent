@@ -17,7 +17,7 @@ Source0:    vpp-monitoring-agent
 Source1:    vpp-monitoring-agent.service
 Source2:    vpp-monitoring-agent-configuration.yaml
 Source3:    vpp-monitoring-agent.sh
-Requires:   vpp >= 17.01, vpp < 17.04
+Requires:   vpp >= 17.04, vpp < 17.07
 # Required for creating vpp-monitoring-agent group
 Requires(pre): shadow-utils
 # Required for configuring systemd

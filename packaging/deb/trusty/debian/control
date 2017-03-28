@@ -7,5 +7,5 @@ Standards-Version: 3.9.6
 
 Package: vpp-monitoring-agent
 Architecture: amd64
-Depends: vpp (>= 17.01), vpp (<< 17.04)
+Depends: vpp (>= 17.04), vpp (<< 17.07)
 Description: Monitoring agent for VPP
