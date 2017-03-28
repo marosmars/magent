@@ -5,21 +5,21 @@ package govpp
 
 #include <stdlib.h>
 
-#include <pneum/pneum.h>
+#include <vpp-api/pneum/pneum.h>
 #include <vnet/vnet.h>
 #include <vlib/vlib.h>
 #include <vlib/unix/unix.h>
 #include <vlibapi/api.h>
 #include <vlibmemory/api.h>
 
-#include <vpp-api/vpe_msg_enum.h>
+#include <vpp/api/vpe_msg_enum.h>
 
 #define vl_typedefs
-#include <vpp-api/vpe_all_api_h.h>
+#include <vpp/api/vpe_all_api_h.h>
 #undef vl_typedefs
 
 #define vl_endianfun
-#include <vpp-api/vpe_all_api_h.h>
+#include <vpp/api/vpe_all_api_h.h>
 #undef vl_endianfun
 */
 import "C"
