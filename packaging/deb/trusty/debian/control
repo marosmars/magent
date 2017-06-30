@@ -1,0 +1,11 @@
+Source: vpp-monitoring-agent
+Section: misc
+Priority: optional
+Maintainer: pnda
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.6
+
+Package: vpp-monitoring-agent
+Architecture: amd64
+Depends: vpp (>= 17.01), vpp (<< 17.04)
+Description: Monitoring agent for VPP

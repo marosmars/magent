@@ -1,0 +1,8 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: vpp-monitoring-agent
+Source: -
+
+Files: *
+Copyright: 2017 PNDA.io pnda
+License: Copyright PNDA.io
+ Copyright (c) 2017 PNDA.io
