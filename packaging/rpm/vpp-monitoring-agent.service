@@ -1,0 +1,12 @@
+[Unit]
+Description=pnda VPP-monitoring-agent
+Wants=vpp.service
+After=vpp.service
+
+[Service]
+Type=simple
+ExecStart=/bin/sh -ec "exec /opt/vpp-monitoring-agent/vpp-monitoring-agent.sh"
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

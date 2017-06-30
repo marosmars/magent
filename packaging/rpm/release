@@ -1,0 +1,6 @@
+#!/bin/bash
+# release version
+# echo FINAL
+#
+# snapshot version
+echo $(expr $BUILD_NUMBER)
