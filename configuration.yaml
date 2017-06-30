@@ -1,0 +1,117 @@
+Collectors:
+
+  # Poll the version of VPP just once
+  Version:
+    Type: version.Version
+    Configuration:
+    Schedule:
+      Type: once
+    Aggregator: Global-aggregator
+
+  # Poll vpp interface information (interface name, index, MAC) every 10 seconds
+  Interface-info:
+    Type: ifc_info.InterfaceInfo
+    Configuration:
+    Schedule:
+      Type: scheduled
+      Delay: 10
+    Aggregator: Global-aggregator
+
+  # Poll vpp summary traffic stats (rx/tx bytes and packets) every 10 seconds
+  Summary-stats:
+    Type: summary_stats.SummaryTrafficStats
+    Configuration:
+    Schedule:
+      Type: scheduled
+      Delay: 10
+    Aggregator: Global-aggregator
+
+  # Receive vpp interface state change (admin/ling status) if it changes
+  Interface-state-notifications:
+    Type: ifc_state.InterfaceStateChanges
+    Configuration:
+    Schedule:
+      Type: notifications
+    Aggregator: Global-aggregator
+
+  # Receive vpp interface counters (dropped, ipv4, ipv6 byte and packet counts) if they change
+  Interface-counters:
+    Type: ifc_counters.InterfaceCounters
+    Configuration:
+    Schedule:
+      Type: notifications
+    Aggregator: Global-aggregator
+
+  # Poll bridge domain information every 10 seconds
+  Bridge-domain-info:
+    Type: bd_info.BridgeDomains
+    Configuration:
+    Schedule:
+      Type: scheduled
+      Delay: 10
+    Aggregator: Global-aggregator
+
+Aggregators:
+
+  # Single central aggregator between collectors and producers
+  Global-aggregator:
+    Type: aggregator.Filtering
+    Configuration:
+      InboundBufferSize: 20
+      OutboundBufferSize: 1
+
+Producers:
+
+  # Log updates in human readable form
+  Txt-logger:
+    Type: producer.Logging
+    Configuration:
+      FileName: /tmp/vpp-monitoring-log.txt
+      FileSize: 50
+      FileBackups: 1
+      FileAge: 0
+      Format: txt
+    Aggregator: Global-aggregator
+
+  # Log updates in json format
+  Json-logger:
+    Type: producer.Logging
+    Configuration:
+      FileName: /tmp/vpp-monitoring-log.json
+      FileSize: 50
+      FileBackups: 1
+      FileAge: 0
+      Format: json
+    Aggregator: Global-aggregator
+
+  # Dump updates in human readable form (not as verbose as log)
+  Txt-file:
+    Type: producer.File
+    Configuration:
+      Format: txt
+      FileName: /tmp/vpp-monitoring-backup.txt
+      FileSize: 100
+      FileBackups: 0
+      FileAge: 0
+    Aggregator: Global-aggregator
+
+  # Dump updates in json format (not as verbose as log, suitable for machine processing)
+  Json-file:
+    Type: producer.File
+    Configuration:
+      Format: json
+      FileName: /tmp/vpp-monitoring-backup.json
+      FileSize: 100
+      FileBackups: 0
+      FileAge: 0
+    Aggregator: Global-aggregator
+
+   # Push updates into kafka in txt or json format
+#  Kafka-producer:
+#    Type: producer.Kafka
+#    Configuration:
+#      Brokers:
+#        - 192.168.1.200:9092
+#      Format: json
+#      Topic: vpp-monitoring
+#    Aggregator: Global-aggregator

@@ -1,0 +1,9 @@
+package: pnda/vpp/monitoring
+import:
+- package: github.com/Shopify/sarama
+  version: ~1.11.0
+- package: github.com/Sirupsen/logrus
+  version: ~0.11.2
+- package: github.com/ghodss/yaml
+- package: github.com/natefinch/lumberjack
+  version: ~v2.0
