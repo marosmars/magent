@@ -17,15 +17,6 @@ Collectors:
       Delay: 10
     Aggregator: Global-aggregator
 
-  # Poll vpp summary traffic stats (rx/tx bytes and packets) every 10 seconds
-  Summary-stats:
-    Type: summary_stats.SummaryTrafficStats
-    Configuration:
-    Schedule:
-      Type: scheduled
-      Delay: 10
-    Aggregator: Global-aggregator
-
   # Receive vpp interface state change (admin/ling status) if it changes
   Interface-state-notifications:
     Type: ifc_state.InterfaceStateChanges
@@ -40,15 +31,6 @@ Collectors:
     Configuration:
     Schedule:
       Type: notifications
-    Aggregator: Global-aggregator
-
-  # Poll bridge domain information every 10 seconds
-  Bridge-domain-info:
-    Type: bd_info.BridgeDomains
-    Configuration:
-    Schedule:
-      Type: scheduled
-      Delay: 10
     Aggregator: Global-aggregator
 
 Aggregators:
